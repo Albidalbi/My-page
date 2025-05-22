@@ -1,1 +1,99 @@
-<h1>Hello!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cooling Gap in Louisville</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    h2 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .view-buttons {
+      text-align: center;
+      margin: 10px 0 20px;
+    }
+
+    .view-buttons button {
+      margin: 0 5px;
+      padding: 8px 14px;
+      font-size: 1em;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .view-buttons button:hover {
+      background: #005fa3;
+    }
+
+    svg {
+      display: block;
+      margin: auto;
+      max-width: 100%;
+      height: auto;
+      background: white;
+      border: 1px solid #ccc;
+    }
+
+    image.overlay-icon {
+      pointer-events: none;
+    }
+
+    .tooltip {
+      position: absolute;
+      padding: 6px 10px;
+      background: rgba(0, 0, 0, 0.75);
+      color: white;
+      border-radius: 4px;
+      font-size: 0.9em;
+      pointer-events: none;
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <h1>The Cooling Gap in Louisville</h1>
+  <p>This map shows Louisville’s cooling gap; a divide between neighborhoods based on heat exposure and economic stress.</p>
+  <p id="desc-main">Explore the cooling index and its correlation with foreclosures in Louisville neighborhoods.</p>
+  <p id="desc-hover">Hover over a neighborhood to see its cooling index and foreclosure rate.</p>
+  <p id="desc-click">Click on a neighborhood to see more details.</p>
+  <h2>Click on the buttons to switch between views:</h2>
+
+  <div class="view-buttons">
+    <button id="view-default">Cooling Index vs Foreclosures</button>
+    <button id="view-cooling">Cooling Infrastructure</button>
+  </div>
+
+  <svg id="main-map" viewBox="0 0 1000 800"
+       xmlns="http://www.w3.org/2000/svg"
+       xmlns:xlink="http://www.w3.org/1999/xlink">
+  </svg>
+
+  <div class="tooltip"></div>
+
+  <script src="cooling_gap.js"></script>
+</body>
+</html>
