@@ -118,4 +118,4 @@ Potential improvements:
 
 ---
 
-**Created by Oskar Larsen** | Game Developer & Unity Specialist
+**Created by Oskar Larsen** | Game Development hobbyist
