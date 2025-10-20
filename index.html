@@ -1,99 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Cooling Gap in Louisville</title>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f7f7f7;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-      text-align: center;
-    }
-    
-    h2 {
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    p {
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .view-buttons {
-      text-align: center;
-      margin: 10px 0 20px;
-    }
-
-    .view-buttons button {
-      margin: 0 5px;
-      padding: 8px 14px;
-      font-size: 1em;
-      background: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .view-buttons button:hover {
-      background: #005fa3;
-    }
-
-    svg {
-      display: block;
-      margin: auto;
-      max-width: 100%;
-      height: auto;
-      background: white;
-      border: 1px solid #ccc;
-    }
-
-    image.overlay-icon {
-      pointer-events: none;
-    }
-
-    .tooltip {
-      position: absolute;
-      padding: 6px 10px;
-      background: rgba(0, 0, 0, 0.75);
-      color: white;
-      border-radius: 4px;
-      font-size: 0.9em;
-      pointer-events: none;
-      display: none;
-      z-index: 1000;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Game Development Portfolio - Oskar Larsen - Unity Developer, Game Designer, and Animator">
+    <meta name="keywords" content="game development, unity, game design, animation, portfolio, indie games">
+    <meta name="author" content="Oskar Larsen">
+    <title>Oskar Larsen - Game Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>The Cooling Gap in Louisville</h1>
-  <p>This map shows Louisville’s cooling gap; a divide between neighborhoods based on heat exposure and economic stress.</p>
-  <p id="desc-main">Explore the cooling index and its correlation with foreclosures in Louisville neighborhoods.</p>
-  <p id="desc-hover">Hover over a neighborhood to see its cooling index and foreclosure rate.</p>
-  <p id="desc-click">Click on a neighborhood to see more details.</p>
-  <h2>Click on the buttons to switch between views:</h2>
+    <header>
+        <h1>Oskar Larsen</h1>
+        <p class="subtitle">Game Developer | Unity Specialist | Animator</p>
+        <nav>
+            <ul class="filter-buttons">
+                <li><button data-filter="all" class="active">All Projects</button></li>
+                <li><button data-filter="unity">Unity</button></li>
+                <li><button data-filter="animation">Animation</button></li>
+                <li><button data-filter="community">Community</button></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="view-buttons">
-    <button id="view-default">Cooling Index vs Foreclosures</button>
-    <button id="view-cooling">Cooling Infrastructure</button>
-  </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Welcome to My Game Dev Portfolio</h2>
+            <p>Passionate about creating engaging game experiences through Unity development, animation, and community-driven projects.</p>
+        </section>
 
-  <svg id="main-map" viewBox="0 0 1000 800"
-       xmlns="http://www.w3.org/2000/svg"
-       xmlns:xlink="http://www.w3.org/1999/xlink">
-  </svg>
+        <!-- Projects Section -->
+        <section id="projects" class="project-grid"></section>
 
-  <div class="tooltip"></div>
+        <!-- Skills Section -->
+        <section class="skills-section">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Game Development</h3>
+                    <ul>
+                        <li>Unity Engine</li>
+                        <li>C# Programming</li>
+                        <li>Game Design</li>
+                        <li>Level Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Animation</h3>
+                    <ul>
+                        <li>Unity Animator</li>
+                        <li>Animation Controllers</li>
+                        <li>Character Animation</li>
+                        <li>State Machines</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Software</h3>
+                    <ul>
+                        <li>Unity 3D</li>
+                        <li>Visual Studio</li>
+                        <li>Git Version Control</li>
+                        <li>Asset Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-  <script src="cooling_gap.js"></script>
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2>Get In Touch</h2>
+            <p>Interested in collaborating or learning more about my work?</p>
+            <div class="contact-links">
+                <a href="mailto:your.oldalbidalbi@gmail.com" class="contact-link">Email Me</a>
+                <a href="https://github.com/Albidalbi" class="contact-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/oskar-larsen-10422218a/" class="contact-link" target="_blank">LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Oskar Larsen. All rights reserved.</p>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="portfolio.js"></script>
 </body>
 </html>
