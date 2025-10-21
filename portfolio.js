@@ -79,6 +79,15 @@ function setupEventListeners() {
         });
     });
 
+    // Email link - copy to clipboard
+    const emailLink = document.getElementById('email-link');
+    if (emailLink) {
+        emailLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            copyEmailToClipboard('oldalbidalbi@gmail.com', emailLink);
+        });
+    }
+
     // Modal close button
     const closeBtn = document.querySelector('.close');
     closeBtn.addEventListener('click', closeModal);
@@ -255,13 +264,36 @@ function addProject(project) {
     displayProjects(projects);
 }
 
+// Copy email to clipboard with visual feedback
+function copyEmailToClipboard(email, buttonElement) {
+    navigator.clipboard.writeText(email).then(() => {
+        // Store original text
+        const originalText = buttonElement.textContent;
+        
+        // Update button text
+        buttonElement.textContent = '✓ Saved to clipboard!';
+        buttonElement.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        
+        // Reset after 2 seconds
+        setTimeout(() => {
+            buttonElement.textContent = originalText;
+            buttonElement.style.background = '';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy email:', err);
+        // Fallback: still show the email in an alert
+        alert('Email: ' + email);
+    });
+}
+
 // Export functions for potential external use
 window.portfolioApp = {
     projects,
     addProject,
     filterProjects,
     openModal,
-    closeModal
+    closeModal,
+    copyEmailToClipboard
 };
 
 console.log('Portfolio app loaded successfully!');

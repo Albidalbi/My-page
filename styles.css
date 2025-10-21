@@ -421,11 +421,16 @@ main {
     border-radius: 25px;
     font-weight: 600;
     transition: var(--transition);
+    cursor: pointer;
 }
 
 .contact-link:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
+}
+
+#email-link {
+    transition: all 0.3s ease;
 }
 
 /* Footer */
