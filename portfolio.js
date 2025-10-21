@@ -8,10 +8,10 @@ const projects = [
         id: 1,
         title: "Unity Loverboy Animation",
         category: ["unity", "animation"],
-        thumbnail: "Portfolio/Unity loverboy animation.gif",
+        thumbnail: "Portfolio/Unity loverboy animation looping.gif",
         images: [
-            "Portfolio/Unity loverboy animation.gif",
-            "Portfolio/Unity loverboy animationController.gif"
+            "Portfolio/Unity loverboy animation looping.gif",
+            "Portfolio/Unity loverboy animationController looping.gif"
         ],
         description: "A character animation project showcasing Unity's animation system. This project demonstrates smooth character animations and animation controller implementation for creating engaging character movements.",
         technologies: ["Unity", "Animation Controller", "Character Animation", "State Machines"],
@@ -41,9 +41,9 @@ const projects = [
         id: 3,
         title: "Animation Controller System",
         category: ["unity", "animation"],
-        thumbnail: "Portfolio/Unity loverboy animationController.gif",
+        thumbnail: "Portfolio/Unity loverboy animationController looping.gif",
         images: [
-            "Portfolio/Unity loverboy animationController.gif"
+            "Portfolio/Unity loverboy animationController looping.gif"
         ],
         description: "Deep dive into Unity's animation controller system, demonstrating state machine setup, transitions, and parameter-driven animations. This work showcases technical proficiency in creating responsive and smooth character animation systems.",
         technologies: ["Unity Animator", "State Machines", "Animation Blending", "C# Scripting"],
