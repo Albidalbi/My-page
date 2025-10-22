@@ -6,21 +6,21 @@
 const projects = [
     {
         id: 1,
-        title: "Unity Loverboy Animation",
-        category: ["unity", "animation"],
+        title: "Unity Loverboy Animation System",
+        category: ["unity"],
         thumbnail: "Portfolio/Unity loverboy animation looping.gif",
         images: [
             "Portfolio/Unity loverboy animation looping.gif",
             "Portfolio/Unity loverboy animationController looping.gif"
         ],
-        description: "A character animation project showcasing Unity's animation system. This project demonstrates smooth character animations and animation controller implementation for creating engaging character movements.",
-        technologies: ["Unity", "Animation Controller", "Character Animation", "State Machines"],
+        description: "A comprehensive character animation project showcasing Unity's animation system. This project demonstrates smooth character animations, animation controller implementation, state machine setup, transitions, and parameter-driven animations for creating engaging and responsive character movements.",
+        technologies: ["Unity", "Animation Controller", "Character Animation", "State Machines", "C# Scripting"],
         featured: true
     },
     {
         id: 2,
         title: "Ninja Cat - Community Project",
-        category: ["unity", "community", "animation"],
+        category: ["godot"],
         thumbnail: "Portfolio/Community project ninja time/Community project ninja time.gif",
         images: [
             "Portfolio/Community project ninja time/Community project ninja time.gif",
@@ -34,20 +34,41 @@ const projects = [
             "Portfolio/Community project ninja time/Ninja Cat GDC/GDC_NinjaCat_BG.png"
         ],
         description: "A community-driven game project featuring a ninja cat character with multiple abilities including throwing stars, charging attacks, slamming, and teleportation. This project showcases comprehensive sprite work, animation states, and game mechanics implementation. Developed as part of a collaborative effort for GDC (Game Developers Conference).",
-        technologies: ["Unity", "2D Game Development", "Sprite Animation", "Game Mechanics", "Community Collaboration"],
+        technologies: ["Godot", "2D Game Development", "Sprite Animation", "Game Mechanics", "Community Collaboration"],
         featured: true
     },
     {
         id: 3,
-        title: "Animation Controller System",
-        category: ["unity", "animation"],
-        thumbnail: "Portfolio/Unity loverboy animationController looping.gif",
+        title: "Point-and-Click Platformer (Unity → Godot)",
+        category: ["unity", "godot"],
+        thumbnail: "Portfolio/Unity point and click platformer.gif",
         images: [
-            "Portfolio/Unity loverboy animationController looping.gif"
+            "Portfolio/Unity point and click platformer.gif",
+            "Portfolio/Unity point and click platformer.png",
+            "Portfolio/Ronin like project.gif"
         ],
-        description: "Deep dive into Unity's animation controller system, demonstrating state machine setup, transitions, and parameter-driven animations. This work showcases technical proficiency in creating responsive and smooth character animation systems.",
-        technologies: ["Unity Animator", "State Machines", "Animation Blending", "C# Scripting"],
-        featured: false
+        description: "A tactical point-and-click platformer inspired by Tomasz Wacławek's 'RONIN'. Originally prototyped in Unity, this project evolved into a Godot implementation. Players plan their moves strategically, combining precision platforming with turn-based combat mechanics. The project showcases the transition between engines while maintaining core gameplay concepts.",
+        technologies: ["Unity", "Godot", "2D Platformer", "Turn-Based Mechanics", "Point-and-Click Controls"],
+        links: [
+            { text: "Project inspired by Tomasz Wacławeks' RONIN", url: "https://store.steampowered.com/app/274230/RONIN/" }
+        ],
+        featured: true
+    },
+    {
+        id: 4,
+        title: "Vania - Metroidvania Project",
+        category: ["godot"],
+        thumbnail: "Portfolio/Vania exploration.png",
+        images: [
+            "Portfolio/Vania exploration.png",
+            "Portfolio/Vania level construction in godot editor.png",
+            "Portfolio/Vania skill tree.png",
+            "Portfolio/Vania level design sketch 1.jpg",
+            "Portfolio/Vania level design sketch 2.jpg"
+        ],
+        description: "A metroidvania-style game developed in Godot featuring interconnected level design, ability-gated progression, and a skill tree system. This project demonstrates level construction in Godot's editor, hand-drawn level design sketches translated into playable environments, and the implementation of classic metroidvania gameplay mechanics with modern design sensibilities.",
+        technologies: ["Godot", "Metroidvania", "Level Design", "Skill Trees", "2D Platformer"],
+        featured: true
     }
 ];
 
@@ -237,12 +258,22 @@ function openModal(project) {
     // Add technologies
     if (project.technologies && project.technologies.length > 0) {
         modalContent += '<div class="modal-tech">';
-        modalContent += '<h3>Technologies Used:</h3>';
+        modalContent += '<h3>Features:</h3>';
         modalContent += '<div class="project-tags">';
         project.technologies.forEach(tech => {
             modalContent += `<span class="tag">${tech}</span>`;
         });
         modalContent += '</div></div>';
+    }
+
+    // Add links if available
+    if (project.links && project.links.length > 0) {
+        modalContent += '<div class="modal-links">';
+        modalContent += '<h3>Related Links:</h3>';
+        project.links.forEach(link => {
+            modalContent += `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="modal-link">${link.text}</a>`;
+        });
+        modalContent += '</div>';
     }
 
     modalBody.innerHTML = modalContent;

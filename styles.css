@@ -45,7 +45,7 @@ header {
 header h1 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.0rem;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -341,6 +341,32 @@ main {
 .modal-tech h3 {
     color: var(--text-primary);
     margin-bottom: 1rem;
+}
+
+.modal-links {
+    margin-top: 2rem;
+}
+
+.modal-links h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.modal-link {
+    display: inline-block;
+    margin: 0.5rem 1rem 0.5rem 0;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.modal-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.5);
 }
 
 /* Skills Section */
