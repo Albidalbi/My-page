@@ -58,8 +58,9 @@ const projects = [
         id: 4,
         title: "Vania - Metroidvania Project",
         category: ["godot"],
-        thumbnail: "Portfolio/Vania exploration.png",
+        thumbnail: "Portfolio/Vania gameplay.gif",
         images: [
+            "Portfolio/Vania gameplay.gif",
             "Portfolio/Vania exploration.png",
             "Portfolio/Vania level construction in godot editor.png",
             "Portfolio/Vania skill tree.png",
