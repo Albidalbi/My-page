@@ -71,6 +71,26 @@ const projects = [
         technologies: ["Godot", "Metroidvania", "Level Design", "Skill Trees", "2D Platformer"],
         featured: true
     }
+    ,
+    {
+        id: 5,
+        title: "The 10th Doctor (GBStudio Prototype)",
+        category: ["gbstudio", "prototype", "playable"],
+        thumbnail: "Portfolio/10th doctor gameplay.gif",
+        images: [
+            "Portfolio/10th doctor gameplay.gif",
+            "Portfolio/10th doctor gameplay.png",
+            "Portfolio/10th doctor title screen.png"
+        ],
+        description: "A rapid 3-day GBStudio prototype called 'The 10th Doctor' created for a course. Heavily inspired by UFO 50's 'Valbrace' and Nintendo's 'Punch-Out!!', focusing on tight, readable patterns and arcade-style combat tuned for the Game Boy aesthetic.",
+        technologies: ["GBStudio", "Game Boy Prototype", "Pixel Art", "Rapid Prototyping"],
+        playableUrl: "Portfolio/10th doctor web build/index.html",
+        links: [
+            { text: "UFO 50 - Valbrace (inspiration)", url: "https://ufo50.miraheze.org/wiki/Valbrace" },
+            { text: "Punch-Out!! (reference)", url: "https://en.wikipedia.org/wiki/Punch-Out!!" }
+        ],
+        featured: true
+    }
 ];
 
 // State Management
@@ -241,6 +261,14 @@ function openModal(project) {
         <h2 class="modal-title">${project.title}</h2>
         <p class="modal-description">${project.description}</p>
     `;
+
+    // Add playable game button if available
+    if (project.playableUrl) {
+        modalContent += '<div class="modal-play-section">';
+        modalContent += `<a href="${project.playableUrl}" target="_blank" rel="noopener noreferrer" class="play-game-btn">🎮 Play Game</a>`;
+        modalContent += '<p class="play-hint">Opens in a new tab • Use Arrow Keys + Z/X or on-screen controls</p>';
+        modalContent += '</div>';
+    }
 
     // Add images gallery
     if (project.images && project.images.length > 0) {
