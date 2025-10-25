@@ -6,7 +6,7 @@
 const projects = [
     {
         id: 1,
-        title: "Unity Loverboy Animation System",
+        title: "Unity Lovrboi Animation System",
         category: ["unity"],
         thumbnail: "Portfolio/Unity loverboy animation looping.gif",
         images: [
