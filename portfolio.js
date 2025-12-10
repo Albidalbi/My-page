@@ -19,87 +19,6 @@ const projects = [
         featured: true
     },
     {
-        id: 2,
-        title: "Ninja Cat - Community Project",
-        category: ["godot"],
-        thumbnail: "Portfolio/Community project ninja time/Community project ninja time.gif",
-        images: [
-            "Portfolio/Community project ninja time/Community project ninja time.gif",
-            "Portfolio/Community project ninja time/Ninja Cat GDC/NinjaCat_Idle.png",
-            "Portfolio/Community project ninja time/Ninja Cat GDC/NinjaCat_throw.png",
-            "Portfolio/Community project ninja time/Ninja Cat GDC/NinjaCat_charge.png",
-            "Portfolio/Community project ninja time/Ninja Cat GDC/NinjaCat_slam.png",
-            "Portfolio/Community project ninja time/Ninja Cat GDC/NinjaCat_teleport.png",
-            "Portfolio/Community project ninja time/Ninja Cat GDC/GDC_throwing_star.png",
-            "Portfolio/Community project ninja time/Ninja Cat GDC/GDC_player_heart.png",
-            "Portfolio/Community project ninja time/Ninja Cat GDC/GDC_NinjaCat_BG.png"
-        ],
-        description: "A community-driven game project featuring a ninja cat character with multiple abilities including throwing stars, charging attacks, slamming, and teleportation. This project showcases comprehensive sprite work, animation states, and game mechanics implementation. Developed as part of a collaborative effort for GDC (Game Developers Conference).",
-        technologies: ["Godot", "2D Game Development", "Sprite Animation", "Game Mechanics", "Community Collaboration"],
-        collaborators: [
-            { name: "Halfdan Eg Minegar Brage", role: "Gameplay Programmer & Art Integration", url: "https://danhalf.itch.io/" }
-        ],
-        featured: true
-    },
-    {
-        id: 3,
-        title: "Point-and-Click Platformer (Unity → Godot)",
-        category: ["unity", "godot"],
-        thumbnail: "Portfolio/Unity point and click platformer.gif",
-        images: [
-            "Portfolio/Unity point and click platformer.gif",
-            "Portfolio/Unity point and click platformer.png",
-            "Portfolio/Ronin like project.gif"
-        ],
-        description: "A tactical point-and-click platformer inspired by Tomasz Wacławek's 'RONIN'. Originally prototyped in Unity, this project evolved into a Godot implementation. Players plan their moves strategically, combining precision platforming with turn-based combat mechanics. The project showcases the transition between engines while maintaining core gameplay concepts.",
-        technologies: ["Unity", "Godot", "2D Platformer", "Turn-Based Mechanics", "Point-and-Click Controls"],
-        links: [
-            { text: "Project inspired by Tomasz Wacławeks' RONIN", url: "https://store.steampowered.com/app/274230/RONIN/" }
-        ],
-        featured: true
-    },
-    {
-        id: 4,
-        title: "Vania - Metroidvania Project",
-        category: ["godot"],
-        thumbnail: "Portfolio/Vania gameplay.gif",
-        images: [
-            "Portfolio/Vania gameplay.gif",
-            "Portfolio/Vania exploration.png",
-            "Portfolio/Vania level construction in godot editor.png",
-            "Portfolio/Vania skill tree.png",
-            "Portfolio/Vania level design sketch 1.jpg",
-            "Portfolio/Vania level design sketch 2.jpg"
-        ],
-        description: "A metroidvania-style game developed in Godot featuring interconnected level design, ability-gated progression, and a skill tree system. This project demonstrates level construction in Godot's editor, hand-drawn level design sketches translated into playable environments, and the implementation of classic metroidvania gameplay mechanics with modern design sensibilities.",
-        technologies: ["Godot", "Metroidvania", "Level Design", "Skill Trees", "2D Platformer"],
-        featured: true
-    }
-    ,
-    {
-        id: 5,
-        title: "The 10th Doctor (GBStudio Prototype)",
-        category: ["gbstudio", "prototype", "playable"],
-        thumbnail: "Portfolio/10th doctor gameplay.gif",
-        images: [
-            "Portfolio/10th doctor gameplay.gif",
-            "Portfolio/10th doctor gameplay.png",
-            "Portfolio/10th doctor title screen.png"
-        ],
-        description: "A rapid 3-day GBStudio prototype called 'The 10th Doctor' created for a course. Heavily inspired by UFO 50's 'Valbrace' and Nintendo's 'Punch-Out!!', focusing on tight, readable patterns and arcade-style combat tuned for the Game Boy aesthetic.",
-        technologies: ["GBStudio", "Game Boy Prototype", "Pixel Art", "Rapid Prototyping"],
-        playableUrl: "Portfolio/10th doctor web build/index.html",
-        collaborators: [
-            { name: "Hugo Reinicke", role: "Co-Developer (Cutscenes & Gameplay Programming)", url: "https://kidnoham.itch.io/" }
-        ],
-        links: [
-            { text: "UFO 50 - Valbrace (inspiration)", url: "https://ufo50.miraheze.org/wiki/Valbrace" },
-            { text: "Punch-Out!! (reference)", url: "https://en.wikipedia.org/wiki/Punch-Out!!" }
-        ],
-        featured: true
-    }
-    ,
-    {
         id: 6,
         title: "Asteroid Escort",
         category: ["godot", "playable"],
@@ -131,6 +50,87 @@ const projects = [
             { name: "Peter Tipsmark Andersen", role: "Programmer, Pixel Artist, AI, GUI, Co-Producer", url: "https://ptandersen.itch.io/" }
         ],
         myRole: "Producer, Art Director, Lead Pixel Artist",
+        featured: true
+    },
+    {
+        id: 4,
+        title: "Vania - Metroidvania Project",
+        category: ["godot"],
+        thumbnail: "Portfolio/Vania gameplay.gif",
+        images: [
+            "Portfolio/Vania gameplay.gif",
+            "Portfolio/Vania exploration.png",
+            "Portfolio/Vania level construction in godot editor.png",
+            "Portfolio/Vania skill tree.png",
+            "Portfolio/Vania level design sketch 1.jpg",
+            "Portfolio/Vania level design sketch 2.jpg"
+        ],
+        description: "A metroidvania-style game developed in Godot featuring interconnected level design, ability-gated progression, and a skill tree system. This project demonstrates level construction in Godot's editor, hand-drawn level design sketches translated into playable environments, and the implementation of classic metroidvania gameplay mechanics with modern design sensibilities.",
+        technologies: ["Godot", "Metroidvania", "Level Design", "Skill Trees", "2D Platformer"],
+        featured: true
+    },
+    {
+        id: 5,
+        title: "The 10th Doctor (GBStudio Prototype)",
+        category: ["gbstudio", "prototype", "playable"],
+        thumbnail: "Portfolio/10th doctor gameplay.gif",
+        images: [
+            "Portfolio/10th doctor gameplay.gif",
+            "Portfolio/10th doctor gameplay.png",
+            "Portfolio/10th doctor title screen.png"
+        ],
+        description: "A rapid 3-day GBStudio prototype called 'The 10th Doctor' created for a course. Heavily inspired by UFO 50's 'Valbrace' and Nintendo's 'Punch-Out!!', focusing on tight, readable patterns and arcade-style combat tuned for the Game Boy aesthetic.",
+        technologies: ["GBStudio", "Game Boy Prototype", "Pixel Art", "Rapid Prototyping"],
+        playableUrl: "Portfolio/10th doctor web build/index.html",
+        collaborators: [
+            { name: "Hugo Reinicke", role: "Co-Developer (Cutscenes & Gameplay Programming)", url: "https://kidnoham.itch.io/" }
+        ],
+        links: [
+            { text: "UFO 50 - Valbrace (inspiration)", url: "https://ufo50.miraheze.org/wiki/Valbrace" },
+            { text: "Punch-Out!! (reference)", url: "https://en.wikipedia.org/wiki/Punch-Out!!" }
+        ],
+        myRole: "Gameplay Programming, Game Design, Pixel Art (Gameplay & Title Screen)",
+        featured: true
+    },
+    {
+        id: 3,
+        title: "Point-and-Click Platformer (Unity → Godot)",
+        category: ["unity", "godot"],
+        thumbnail: "Portfolio/Ronin like project.gif",
+        images: [
+            "Portfolio/Ronin like project.gif",
+            "Portfolio/Unity point and click platformer.gif",
+            "Portfolio/Unity point and click platformer.png"
+        ],
+        description: "A tactical point-and-click platformer inspired by Tomasz Wacławek's 'RONIN'. Originally prototyped in Unity, this project evolved into a Godot implementation. Players plan their moves strategically, combining precision platforming with turn-based combat mechanics. The project showcases the transition between engines while maintaining core gameplay concepts.",
+        technologies: ["Unity", "Godot", "2D Platformer", "Turn-Based Mechanics", "Point-and-Click Controls"],
+        links: [
+            { text: "Project inspired by Tomasz Wacławeks' RONIN", url: "https://store.steampowered.com/app/274230/RONIN/" }
+        ],
+        featured: true
+    },
+    {
+        id: 2,
+        title: "Ninja Cat - Community Project",
+        category: ["godot"],
+        thumbnail: "Portfolio/Community project ninja time/Community project ninja time.gif",
+        images: [
+            "Portfolio/Community project ninja time/Community project ninja time.gif",
+            "Portfolio/Community project ninja time/Ninja Cat GDC/NinjaCat_Idle.png",
+            "Portfolio/Community project ninja time/Ninja Cat GDC/NinjaCat_throw.png",
+            "Portfolio/Community project ninja time/Ninja Cat GDC/NinjaCat_charge.png",
+            "Portfolio/Community project ninja time/Ninja Cat GDC/NinjaCat_slam.png",
+            "Portfolio/Community project ninja time/Ninja Cat GDC/NinjaCat_teleport.png",
+            "Portfolio/Community project ninja time/Ninja Cat GDC/GDC_throwing_star.png",
+            "Portfolio/Community project ninja time/Ninja Cat GDC/GDC_player_heart.png",
+            "Portfolio/Community project ninja time/Ninja Cat GDC/GDC_NinjaCat_BG.png"
+        ],
+        description: "A community-driven game project featuring a ninja cat character with multiple abilities including throwing stars, charging attacks, slamming, and teleportation. This project showcases comprehensive sprite work, animation states, and game mechanics implementation. Developed as part of a collaborative effort for GDC (Game Developers Conference).",
+        technologies: ["Godot", "2D Game Development", "Sprite Animation", "Game Mechanics", "Community Collaboration"],
+        collaborators: [
+            { name: "Halfdan Eg Minegar Brage", role: "Gameplay Programmer & Art Integration", url: "https://danhalf.itch.io/" }
+        ],
+        myRole: "Pixel Artist (Ninja Cat Boss Sprites, Animations, Shuriken, HP, Background Tiles)",
         featured: true
     }
 ];
