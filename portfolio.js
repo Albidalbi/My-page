@@ -8,13 +8,14 @@ const projects = [
         id: 1,
         title: "Unity Lovrboi Animation System",
         category: ["unity"],
-        thumbnail: "Portfolio/Unity loverboy animation looping.gif",
+        thumbnail: "Portfolio/Unity loverboy gameplay.gif",
         images: [
+            "Portfolio/Unity loverboy gameplay.gif",
             "Portfolio/Unity loverboy animation looping.gif",
             "Portfolio/Unity loverboy animationController looping.gif"
         ],
-        description: "A comprehensive character animation project showcasing Unity's animation system. This project demonstrates smooth character animations, animation controller implementation, state machine setup, transitions, and parameter-driven animations for creating engaging and responsive character movements.",
-        technologies: ["Unity", "Animation Controller", "Character Animation", "State Machines", "C# Scripting"],
+        description: "A comprehensive platformer project showcasing Unity's animation system, enemy AI, and platforming mechanics. Recent updates include enemy implementation, refined platforming controls, and deep exploration of Unity's Animator Controller for creating responsive character states. This project demonstrates smooth character animations, state machine setup, complex transitions, and parameter-driven animations that respond dynamically to gameplay scenarios like jumping, attacking, and enemy interactions.",
+        technologies: ["Unity", "Animation Controller", "Character Animation", "State Machines", "C# Scripting", "Enemy AI", "Platforming Mechanics"],
         featured: true
     },
     {
@@ -35,6 +36,9 @@ const projects = [
         ],
         description: "A community-driven game project featuring a ninja cat character with multiple abilities including throwing stars, charging attacks, slamming, and teleportation. This project showcases comprehensive sprite work, animation states, and game mechanics implementation. Developed as part of a collaborative effort for GDC (Game Developers Conference).",
         technologies: ["Godot", "2D Game Development", "Sprite Animation", "Game Mechanics", "Community Collaboration"],
+        collaborators: [
+            { name: "Halfdan Eg Minegar Brage", role: "Gameplay Programmer & Art Integration", url: "https://danhalf.itch.io/" }
+        ],
         featured: true
     },
     {
@@ -85,10 +89,48 @@ const projects = [
         description: "A rapid 3-day GBStudio prototype called 'The 10th Doctor' created for a course. Heavily inspired by UFO 50's 'Valbrace' and Nintendo's 'Punch-Out!!', focusing on tight, readable patterns and arcade-style combat tuned for the Game Boy aesthetic.",
         technologies: ["GBStudio", "Game Boy Prototype", "Pixel Art", "Rapid Prototyping"],
         playableUrl: "Portfolio/10th doctor web build/index.html",
+        collaborators: [
+            { name: "Hugo Reinicke", role: "Co-Developer (Cutscenes & Gameplay Programming)", url: "https://kidnoham.itch.io/" }
+        ],
         links: [
             { text: "UFO 50 - Valbrace (inspiration)", url: "https://ufo50.miraheze.org/wiki/Valbrace" },
             { text: "Punch-Out!! (reference)", url: "https://en.wikipedia.org/wiki/Punch-Out!!" }
         ],
+        featured: true
+    }
+    ,
+    {
+        id: 6,
+        title: "Asteroid Escort",
+        category: ["godot", "playable"],
+        thumbnail: "Portfolio/Asteroid Escort/Asteroid escort gameplay.gif",
+        images: [
+            "Portfolio/Asteroid Escort/Asteroid escort gameplay.gif",
+            "Portfolio/Asteroid Escort/Gameplay.png",
+            "Portfolio/Asteroid Escort/Gameplay 2.png",
+            "Portfolio/Asteroid Escort/Gameplay 3.png",
+            "Portfolio/Asteroid Escort/Gameplay 4.png",
+            "Portfolio/Asteroid Escort/Gameplay sketch.jpg",
+            "Portfolio/Asteroid Escort/Constructions sketches.jpg",
+            "Portfolio/Asteroid Escort/Enemy sketches.jpg"
+        ],
+        description: "A space escort game developed in Godot where the player protects their core from enemies while managing resources and building defenses. Features custom pixel art created in Aseprite, progressing from prototype to final Apollo palette. The project showcases comprehensive game design including level design, tutorial systems, GUI/UX, and technical programming across a full development team.",
+        technologies: ["Godot", "Pixel Art", "Aseprite", "Level Design", "GUI/UX", "Team Collaboration", "Game Design"],
+        itchWidget: '<iframe frameborder="0" src="https://itch.io/embed/4088157?linkback=true&amp;bg_color=1c273e&amp;fg_color=d5d6dd&amp;link_color=3b29e2&amp;border_color=8999ac" width="552" height="167"><a href="https://albidalbi.itch.io/asteroid-escort">Asteroid Escort by Albidalbi, Juules32, Danhalf, cott3r, Flengel, PTAndersen</a></iframe>',
+        itchUrl: "https://albidalbi.itch.io/asteroid-escort",
+        downloadableAssets: {
+            prototypeSprites: "Portfolio/Asteroid Escort/prototype palette",
+            apolloSprites: "Portfolio/Asteroid Escort/apollo palette",
+            description: "All original pixel art created in Aseprite. These include both prototype and final Apollo palette versions."
+        },
+        collaborators: [
+            { name: "Henrik Hammershøj Flengel", role: "Design Lead, Level Design, Tutorial", url: "https://flengel.itch.io/" },
+            { name: "Thomas Astegger", role: "UX Lead, Level Design, GUI, Tutorial", url: "https://cott3r.itch.io/" },
+            { name: "Halfdan Eg Minegar Brage", role: "Tech Lead, Design, Sound, VFX", url: "https://danhalf.itch.io/" },
+            { name: "Benjamin Juul Jensen", role: "Programmer, GUI, Shaders", url: "https://juules32.itch.io/" },
+            { name: "Peter Tipsmark Andersen", role: "Programmer, Pixel Artist, AI, GUI, Co-Producer", url: "https://ptandersen.itch.io/" }
+        ],
+        myRole: "Producer, Art Director, Lead Pixel Artist",
         featured: true
     }
 ];
@@ -142,10 +184,15 @@ function setupEventListeners() {
         }
     });
 
-    // Close modal on ESC key
+    // Close modal and lightbox on ESC key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            closeModal();
+            const lightbox = document.getElementById('image-lightbox');
+            if (lightbox && lightbox.classList.contains('active')) {
+                closeLightbox();
+            } else {
+                closeModal();
+            }
         }
     });
 }
@@ -229,6 +276,15 @@ function createProjectCard(project) {
     // Create tags
     const tags = document.createElement('div');
     tags.className = 'project-tags';
+    
+    // Add collaborative badge if project has collaborators
+    if (project.collaborators && project.collaborators.length > 0) {
+        const collabBadge = document.createElement('span');
+        collabBadge.className = 'tag collab-badge';
+        collabBadge.textContent = '🤝 Collaboration';
+        tags.appendChild(collabBadge);
+    }
+    
     project.category.forEach(cat => {
         const tag = document.createElement('span');
         tag.className = 'tag';
@@ -270,6 +326,18 @@ function openModal(project) {
         modalContent += '</div>';
     }
 
+    // Add itch.io widget if available
+    if (project.itchWidget) {
+        modalContent += '<div class="modal-itch-section">';
+        modalContent += '<h3>🎮 Play on itch.io:</h3>';
+        modalContent += project.itchWidget;
+        modalContent += '</div>';
+    } else if (project.itchUrl) {
+        modalContent += '<div class="modal-itch-section">';
+        modalContent += `<a href="${project.itchUrl}" target="_blank" rel="noopener noreferrer" class="itch-link-btn">View on itch.io →</a>`;
+        modalContent += '</div>';
+    }
+
     // Add images gallery
     if (project.images && project.images.length > 0) {
         modalContent += '<div class="modal-images">';
@@ -278,6 +346,7 @@ function openModal(project) {
                 <img src="${image}" 
                      alt="${project.title}" 
                      loading="lazy"
+                     class="zoomable-image"
                      onerror="this.style.display='none'">
             `;
         });
@@ -295,6 +364,101 @@ function openModal(project) {
         modalContent += '</div></div>';
     }
 
+    // Add pixel art sprite showcase section if available
+    if (project.downloadableAssets) {
+        modalContent += '<div class="modal-assets">';
+        modalContent += '<h3>🎨 Pixel Art Showcase:</h3>';
+        modalContent += `<p class="assets-description">${project.downloadableAssets.description}</p>`;
+        
+        // Apollo Palette sprites
+        if (project.downloadableAssets.apolloSprites) {
+            modalContent += '<div class="sprite-showcase">';
+            modalContent += '<h4>Apollo Palette (Final)</h4>';
+            modalContent += '<div class="sprite-grid">';
+            
+            const apolloSprites = [
+                'Player.png', 'Swarmer.gif', 'Monster.png', 'Ark.png',
+                'Large Asteroid.png', 'Medium Asteroid.png', 'Small Asteroid.png',
+                'Turret Barrel.png', 'Turret Base.png', 'Medium turret barrel.png',
+                'Boost.png', 'Thruster.png', 'Beacon.png',
+                '16x16 Drill.png', '16x16 Mineable.png', 'Ores.png',
+                'Large Core.png', 'Medium Core.png', 'Small Core.png',
+                'GUI Icons 2.png', 'Big square block.png', 'Medium square block.png'
+            ];
+            
+            apolloSprites.forEach(sprite => {
+                modalContent += `
+                    <img src="${project.downloadableAssets.apolloSprites}/${sprite}" 
+                         alt="${sprite}" 
+                         class="sprite-item zoomable-image"
+                         loading="lazy"
+                         onerror="this.style.display='none'"
+                         title="${sprite}">
+                `;
+            });
+            
+            modalContent += '</div></div>';
+        }
+        
+        // Prototype Palette sprites
+        if (project.downloadableAssets.prototypeSprites) {
+            modalContent += '<div class="sprite-showcase">';
+            modalContent += '<h4>Prototype Palette (Early Development)</h4>';
+            modalContent += '<div class="sprite-grid">';
+            
+            const prototypeSprites = [
+                'Ship v7.png', 'Ship v7 drill.gif', 'Monster.png',
+                'Big asteroid.png', 'Medium asteroid.png', 'Small asteroid.png',
+                'construct turret base.png', 'construct turret barrel.png',
+                'construct thruster.png', 'construct cube.png',
+                'Big core.png', 'Medium core.png', 'Small core.png',
+                '16x16 Resource.png', 'Resource.gif',
+                'Player ship thruster.png', 'little flame burst.png'
+            ];
+            
+            prototypeSprites.forEach(sprite => {
+                modalContent += `
+                    <img src="${project.downloadableAssets.prototypeSprites}/${sprite}" 
+                         alt="${sprite}" 
+                         class="sprite-item zoomable-image"
+                         loading="lazy"
+                         onerror="this.style.display='none'"
+                         title="${sprite}">
+                `;
+            });
+            
+            modalContent += '</div></div>';
+        }
+        modalContent += '</div>';
+    }
+
+    // Add my role if this is a collaborative project
+    if (project.myRole && project.collaborators && project.collaborators.length > 0) {
+        modalContent += '<div class="modal-my-role">';
+        modalContent += '<h3>🎯 My Role:</h3>';
+        modalContent += `<p class="my-role-text">${project.myRole}</p>`;
+        modalContent += '</div>';
+    }
+
+    // Add collaborators section if available
+    if (project.collaborators && project.collaborators.length > 0) {
+        modalContent += '<div class="modal-collaborators">';
+        modalContent += '<h3>🤝 Development Team:</h3>';
+        modalContent += '<div class="collaborator-list">';
+        project.collaborators.forEach(collab => {
+            modalContent += `
+                <div class="collaborator-card">
+                    <a href="${collab.url}" target="_blank" rel="noopener noreferrer" class="collaborator-link">
+                        <div class="collaborator-name">${collab.name}</div>
+                        <div class="collaborator-role">${collab.role}</div>
+                        <div class="collaborator-itch">View on itch.io →</div>
+                    </a>
+                </div>
+            `;
+        });
+        modalContent += '</div></div>';
+    }
+
     // Add links if available
     if (project.links && project.links.length > 0) {
         modalContent += '<div class="modal-links">';
@@ -308,6 +472,41 @@ function openModal(project) {
     modalBody.innerHTML = modalContent;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Add click handlers to all zoomable images
+    setupImageZoom();
+}
+
+// Setup image zoom functionality
+function setupImageZoom() {
+    const zoomableImages = document.querySelectorAll('.zoomable-image');
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.querySelector('.lightbox-caption');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    
+    zoomableImages.forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = img.title || img.alt;
+            lightbox.classList.add('active');
+        });
+    });
+    
+    // Close lightbox on click outside image
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target === lightboxClose) {
+            closeLightbox();
+        }
+    });
+}
+
+// Close lightbox
+function closeLightbox() {
+    const lightbox = document.getElementById('image-lightbox');
+    lightbox.classList.remove('active');
 }
 
 // Close modal
@@ -316,6 +515,7 @@ function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = ''; // Restore scrolling
     currentProject = null;
+    closeLightbox(); // Also close lightbox if open
 }
 
 // Utility function to add new projects dynamically
