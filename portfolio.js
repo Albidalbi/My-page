@@ -7,7 +7,7 @@ const projects = [
     {
         id: 1,
         title: "Unity Lovrboi Animation System",
-        category: ["unity"],
+        category: ["unity", "playable"],
         thumbnail: "Portfolio/Unity loverboy gameplay.gif",
         images: [
             "Portfolio/Unity loverboy gameplay.gif",
@@ -16,6 +16,8 @@ const projects = [
         ],
         description: "A comprehensive platformer project showcasing Unity's animation system, enemy AI, and platforming mechanics. Recent updates include enemy implementation, refined platforming controls, and deep exploration of Unity's Animator Controller for creating responsive character states. This project demonstrates smooth character animations, state machine setup, complex transitions, and parameter-driven animations that respond dynamically to gameplay scenarios like jumping, attacking, and enemy interactions.",
         technologies: ["Unity", "Animation Controller", "Character Animation", "State Machines", "C# Scripting", "Enemy AI", "Platforming Mechanics"],
+        itchWidget: '<iframe frameborder="0" src="https://itch.io/embed/4115708" width="552" height="167"><a href="https://albidalbi.itch.io/lovrboi">Lovrboi by Albidalbi</a></iframe>',
+        itchUrl: "https://albidalbi.itch.io/lovrboi",
         featured: true
     },
     {
