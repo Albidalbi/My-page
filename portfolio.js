@@ -14,7 +14,7 @@ const projects = [
             "Portfolio/Unity loverboy animation looping.gif",
             "Portfolio/Unity loverboy animationController looping.gif"
         ],
-        description: "A comprehensive platformer project showcasing Unity's animation system, enemy AI, and platforming mechanics. Recent updates include enemy implementation, refined platforming controls, and deep exploration of Unity's Animator Controller for creating responsive character states. This project demonstrates smooth character animations, state machine setup, complex transitions, and parameter-driven animations that respond dynamically to gameplay scenarios like jumping, attacking, and enemy interactions.",
+        description: "An action platformer project focused on learning the Unity game engine, particularly integrating animation into characters for gameplay, rudimentary enemy AI, and light platforming mechanics. The story of this game is still being written, and I'm hoping to expand on this project in my free time after handing it in for exam.",
         technologies: ["Unity", "Animation Controller", "Character Animation", "State Machines", "C# Scripting", "Enemy AI", "Platforming Mechanics"],
         itchWidget: '<iframe frameborder="0" src="https://itch.io/embed/4115708" width="552" height="167"><a href="https://albidalbi.itch.io/lovrboi">Lovrboi by Albidalbi</a></iframe>',
         itchUrl: "https://albidalbi.itch.io/lovrboi",
@@ -67,7 +67,7 @@ const projects = [
             "Portfolio/Vania level design sketch 1.jpg",
             "Portfolio/Vania level design sketch 2.jpg"
         ],
-        description: "A metroidvania-style game developed in Godot featuring interconnected level design, ability-gated progression, and a skill tree system. This project demonstrates level construction in Godot's editor, hand-drawn level design sketches translated into playable environments, and the implementation of classic metroidvania gameplay mechanics with modern design sensibilities.",
+        description: "A metroidvania-style game developed in Godot featuring interconnected vertical level design and designing a horizontal skill progression via a skill tree system. This game features hand-drawn level design sketches translated into playable pixel-art environments. The current pixel art on display does NOT represent the final vision of the project. The story of this game is still being written, and I'm hoping to expand on this project in my free time after handing it in for exam.",
         technologies: ["Godot", "Metroidvania", "Level Design", "Skill Trees", "2D Platformer"],
         featured: true
     },
@@ -104,7 +104,7 @@ const projects = [
             "Portfolio/Unity point and click platformer.gif",
             "Portfolio/Unity point and click platformer.png"
         ],
-        description: "A tactical point-and-click platformer inspired by Tomasz Wacławek's 'RONIN'. Originally prototyped in Unity, this project evolved into a Godot implementation. Players plan their moves strategically, combining precision platforming with turn-based combat mechanics. The project showcases the transition between engines while maintaining core gameplay concepts.",
+        description: "A tactical point-and-click platformer inspired by Tomasz Wacławek's 'RONIN'. Originally prototyped in Unity, this project evolved into a Godot implementation. Players plan their moves strategically, combining precision platforming with turn-based combat mechanics. The project showcases the transition between engines while maintaining core gameplay concepts. The story of this game is still being written, and I'm hoping to expand on this project in my free time after handing it in for exam.",
         technologies: ["Unity", "Godot", "2D Platformer", "Turn-Based Mechanics", "Point-and-Click Controls"],
         links: [
             { text: "Project inspired by Tomasz Wacławeks' RONIN", url: "https://store.steampowered.com/app/274230/RONIN/" }
