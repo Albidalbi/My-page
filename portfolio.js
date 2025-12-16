@@ -8,11 +8,11 @@ const projects = [
         id: 1,
         title: "Unity Lovrboi Animation System",
         category: ["unity", "playable"],
-        thumbnail: "Portfolio/Unity loverboy gameplay.gif",
+        thumbnail: "Portfolio/Unity Loverboy/Unity loverboy gameplay.gif",
         images: [
-            "Portfolio/Unity loverboy gameplay.gif",
-            "Portfolio/Unity loverboy animation looping.gif",
-            "Portfolio/Unity loverboy animationController looping.gif"
+            "Portfolio/Unity Loverboy/Unity loverboy gameplay.gif",
+            "Portfolio/Unity Loverboy/Unity loverboy animation looping.gif",
+            "Portfolio/Unity Loverboy/Unity loverboy animationController looping.gif"
         ],
         description: "An action platformer project focused on learning the Unity game engine, particularly integrating animation into characters for gameplay, rudimentary enemy AI, and light platforming mechanics. The story of this game is still being written, and I'm hoping to expand on this project in my free time after handing it in for exam.",
         technologies: ["Unity", "Animation Controller", "Character Animation", "State Machines", "C# Scripting", "Enemy AI", "Platforming Mechanics"],
@@ -58,14 +58,14 @@ const projects = [
         id: 4,
         title: "Vania - Metroidvania Project",
         category: ["godot"],
-        thumbnail: "Portfolio/Vania gameplay.gif",
+        thumbnail: "Portfolio/Godot Vania/Vania gameplay.gif",
         images: [
-            "Portfolio/Vania gameplay.gif",
-            "Portfolio/Vania exploration.png",
-            "Portfolio/Vania level construction in godot editor.png",
-            "Portfolio/Vania skill tree.png",
-            "Portfolio/Vania level design sketch 1.jpg",
-            "Portfolio/Vania level design sketch 2.jpg"
+            "Portfolio/Godot Vania/Vania gameplay.gif",
+            "Portfolio/Godot Vania/Vania exploration.png",
+            "Portfolio/Godot Vania/Vania level construction in godot editor.png",
+            "Portfolio/Godot Vania/Vania skill tree.png",
+            "Portfolio/Godot Vania/Vania level design sketch 1.jpg",
+            "Portfolio/Godot Vania/Vania level design sketch 2.jpg"
         ],
         description: "A metroidvania-style game developed in Godot featuring interconnected vertical level design and designing a horizontal skill progression via a skill tree system. This game features hand-drawn level design sketches translated into playable pixel-art environments. The current pixel art on display does NOT represent the final vision of the project. The story of this game is still being written, and I'm hoping to expand on this project in my free time after handing it in for exam.",
         technologies: ["Godot", "Metroidvania", "Level Design", "Skill Trees", "2D Platformer"],
@@ -75,11 +75,11 @@ const projects = [
         id: 5,
         title: "The 10th Doctor (GBStudio Prototype)",
         category: ["gbstudio", "prototype", "playable"],
-        thumbnail: "Portfolio/10th doctor gameplay.gif",
+        thumbnail: "Portfolio/GBStudio 10th doctor/10th doctor gameplay.gif",
         images: [
-            "Portfolio/10th doctor gameplay.gif",
-            "Portfolio/10th doctor gameplay.png",
-            "Portfolio/10th doctor title screen.png"
+            "Portfolio/GBStudio 10th doctor/10th doctor gameplay.gif",
+            "Portfolio/GBStudio 10th doctor/10th doctor gameplay.png",
+            "Portfolio/GBStudio 10th doctor/10th doctor title screen.png"
         ],
         description: "A rapid 3-day GBStudio prototype called 'The 10th Doctor' created for a course. Heavily inspired by UFO 50's 'Valbrace' and Nintendo's 'Punch-Out!!', focusing on tight, readable patterns and arcade-style combat tuned for the Game Boy aesthetic.",
         technologies: ["GBStudio", "Game Boy Prototype", "Pixel Art", "Rapid Prototyping"],
@@ -98,11 +98,11 @@ const projects = [
         id: 3,
         title: "Point-and-Click Platformer (Unity → Godot)",
         category: ["unity", "godot"],
-        thumbnail: "Portfolio/Ronin like project.gif",
+        thumbnail: "Portfolio/Ronin/Ronin like project.gif",
         images: [
-            "Portfolio/Ronin like project.gif",
-            "Portfolio/Unity point and click platformer.gif",
-            "Portfolio/Unity point and click platformer.png"
+            "Portfolio/Ronin/Ronin like project.gif",
+            "Portfolio/Ronin/Unity point and click platformer.gif",
+            "Portfolio/Ronin/Unity point and click platformer.png"
         ],
         description: "A tactical point-and-click platformer inspired by Tomasz Wacławek's 'RONIN'. Originally prototyped in Unity, this project evolved into a Godot implementation. Players plan their moves strategically, combining precision platforming with turn-based combat mechanics. The project showcases the transition between engines while maintaining core gameplay concepts. The story of this game is still being written, and I'm hoping to expand on this project in my free time after handing it in for exam.",
         technologies: ["Unity", "Godot", "2D Platformer", "Turn-Based Mechanics", "Point-and-Click Controls"],
@@ -133,6 +133,26 @@ const projects = [
             { name: "Halfdan Eg Minegar Brage", role: "Gameplay Programmer & Art Integration", url: "https://danhalf.itch.io/" }
         ],
         myRole: "Pixel Artist (Ninja Cat Boss Sprites, Animations, Shuriken, HP, Background Tiles)",
+        featured: true
+    },
+    {
+        id: 7,
+        title: "Bachelor's Project: Games for Learning in Museums",
+        category: ["figma", "playable"],
+        thumbnail: "Portfolio/Bachelor project/Enkelt.gif",
+        images: [
+            "Portfolio/Bachelor project/Enkelt.gif",
+            "Portfolio/Bachelor project/Report front page.png",
+            "Portfolio/Bachelor project/Appendix H Final prototype versions and test deployment.png",
+            "Portfolio/Bachelor project/Appendix B Early versions of interactive prototype.png",
+            "Portfolio/Bachelor project/Appendix D excerpt of design proposal for Enigma.png"
+        ],
+        description: "A theoretical research project exploring how digital interactive systems can encourage play and learning in museum exhibitions. This bachelor's project designed and tested an interactive digital leaderboard system accessible via QR codes, aimed at engaging museum guests with game-based learning experiences. Features two complete Figma prototype flows demonstrating different approaches to gamification in cultural heritage contexts.",
+        technologies: ["Figma", "Interactive Prototyping", "UX Design", "Game Design Research", "Museum Technology", "QR Code Integration", "Digital Leaderboards"],
+        links: [
+            { text: "Figma Prototype - Game List Version (Interactive)", url: "https://www.figma.com/proto/qgNNvpAX6iwfVCWGASicdt/Prototype-Bachelorprojekt?node-id=0-1&p=f&viewport=81%2C428%2C0.26&t=rUdwdVHSZVfPNAJH-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1202%3A368&show-proto-sidebar=1" },
+            { text: "Figma Prototype - Singular Game Version (Interactive)", url: "https://www.figma.com/proto/qgNNvpAX6iwfVCWGASicdt/Prototype-Bachelorprojekt?node-id=0-1&p=f&viewport=81%2C428%2C0.26&t=rUdwdVHSZVfPNAJH-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1202%3A354&show-proto-sidebar=1" }
+        ],
         featured: true
     }
 ];
