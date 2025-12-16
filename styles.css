@@ -5,14 +5,14 @@
 /* CSS Variables for easy theming */
 :root {
     /* Main theme colors - Green/Blue/Yellow scheme */
-    --primary-color: #10b981;        /* Vibrant green */
-    --secondary-color: #06b6d4;      /* Cyan blue */
-    --accent-color: #fbbf24;         /* Golden yellow */
+    --primary-color: #69b6da;        /* Vibrant green */
+    --secondary-color: #000000;      /* Cyan blue */
+    --accent-color: #5188a1;         /* Golden yellow */
     
     /* Background colors - Darker for higher contrast */
-    --dark-bg: #0a0f0a;              /* Very dark green-tinted black */
-    --card-bg: #111827;              /* Dark charcoal */
-    --bg-dark-alt: #0f1419;          /* Alternate dark background */
+    --dark-bg: #000000;              /* Very dark green-tinted black */
+    --card-bg: #0b1522;              /* Dark charcoal */
+    --bg-dark-alt: #000000;          /* Alternate dark background */
     
     /* Text colors - Brighter for higher contrast */
     --text-primary: #f9fafb;         /* Near white */
@@ -153,7 +153,7 @@ nav {
 .filter-buttons button.active {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     border-color: var(--accent-color);
-    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 5px 20px rgba(0, 247, 255, 0.4);
 }
 
 /* Main Content */
@@ -220,7 +220,7 @@ main {
 .project-card:hover {
     transform: translateY(-10px);
     border-color: var(--primary-color);
-    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 247, 255, 0.4);
 }
 
 .project-card.hidden {
@@ -253,7 +253,7 @@ main {
 }
 
 .tag {
-    background: rgba(99, 102, 241, 0.2);
+    background: rgba(0, 0, 0, 0.2);
     color: var(--primary-color);
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
