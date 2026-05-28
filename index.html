@@ -10,9 +10,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="site-logo" aria-label="Oskar Larsen portfolio logo">
+        <img src="assets/Portfolio/Logo.svg" alt="Oskar Larsen logo">
+    </div>
+    <div class="toc-menu-container">
+        <button id="toc-button" class="toc-button" type="button" aria-expanded="false" aria-controls="toc-dropdown" aria-label="Open table of contents">
+            <img src="assets/Portfolio/TableOfContents.svg" alt="Table of contents">
+        </button>
+        <div id="toc-dropdown" class="toc-dropdown" hidden>
+            <a href="#projects">Projects overview</a>
+            <a href="#skills-section">Skills, Technologies & Hobbies</a>
+            <a href="#contact-section">Get In Touch</a>
+        </div>
+    </div>
     <header>
         <h1>Welcome to My Game Dev Portfolio</h1>
-        <p class="subtitle">Passionate about creating engaging computer games.</p>
         <nav>
             <ul class="filter-buttons">
                 <li><button data-filter="all" class="active">All Projects</button></li>
@@ -29,7 +41,7 @@
         <section id="projects" class="project-grid"></section>
 
         <!-- Skills Section -->
-        <section class="skills-section">
+        <section class="skills-section" id="skills-section">
             <h2>Skills, Technologies & Hobbies</h2>
             <div class="skills-grid">
                 <div class="skill-category">
@@ -68,7 +80,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section class="contact-section">
+        <section class="contact-section" id="contact-section">
             <h2>Get In Touch</h2>
             <p>Interested in collaborating or learning more about my work?</p>
             <div class="contact-links">
@@ -81,7 +93,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Oskar Larsen. All rights reserved.</p>
+        <p>&copy; 2026 Oskar Larsen. All rights reserved.</p>
     </footer>
 
     <!-- Project Modal -->

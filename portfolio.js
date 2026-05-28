@@ -6,18 +6,49 @@
 const projects = [
     {
         id: 1,
-        title: "Unity Lovrboi Animation System",
+        title: "Lovrboi - Mobile Touch Movement Study",
         category: ["unity", "playable"],
-        thumbnail: "Portfolio/Unity Loverboy/Unity loverboy gameplay.gif",
+        thumbnail: "Portfolio/Unity Loverboy/27052026/Lovrboi 2026 gameplay.gif",
         images: [
-            "Portfolio/Unity Loverboy/Unity loverboy gameplay.gif",
-            "Portfolio/Unity Loverboy/Unity loverboy animation looping.gif",
-            "Portfolio/Unity Loverboy/Unity loverboy animationController looping.gif"
+            "Portfolio/Unity Loverboy/27052026/Cover Image.png",
+            "Portfolio/Unity Loverboy/27052026/Lovrboi 2026 gameplay.gif",
+            "Portfolio/Unity Loverboy/27052026/Gameplay screenshot combat.png",
+            "Portfolio/Unity Loverboy/27052026/Gameplay screenshot Gravestone Jump Puzzle.png",
+            "Portfolio/Unity Loverboy/27052026/Movement variants.png",
+            "Portfolio/Unity Loverboy/27052026/Lovrboi NGJ showcase QR code sign print.png"
         ],
-        description: "An action platformer project focused on learning the Unity game engine, particularly integrating animation into characters for gameplay, rudimentary enemy AI, and light platforming mechanics. The story of this game is still being written, and I'm hoping to expand on this project in my free time after handing it in for exam.",
-        technologies: ["Unity", "Animation Controller", "Character Animation", "State Machines", "C# Scripting", "Enemy AI", "Platforming Mechanics"],
+        legacyImages: [
+            "Portfolio/Unity Loverboy/Pre 2026/Unity loverboy gameplay.gif",
+            "Portfolio/Unity Loverboy/Pre 2026/Unity loverboy animation looping.gif",
+            "Portfolio/Unity Loverboy/Pre 2026/Unity loverboy animationController looping.gif"
+        ],
+        description: "An exam project for Games User Research during the second semester of my MSc in Games - Design. Lovrboi uses a data-driven mixed-methods workflow to improve mobile touch movement controls, triangulating telemetry and survey responses collected in the same evaluation window. The updated build reflects playtesting across showcases and snowball recruitment, with findings that players understood the left-right movement system but still reported friction around jump feel and responsiveness. The earlier pre-2026 prototype assets are kept as archived historical material.",
+        technologies: ["Unity", "Games User Research", "Telemetry Analysis", "Mixed Methods", "Mobile Touch Controls", "UX Research", "Playtesting"],
         itchWidget: '<iframe frameborder="0" src="https://itch.io/embed/4115708" width="552" height="167"><a href="https://albidalbi.itch.io/lovrboi">Lovrboi by Albidalbi</a></iframe>',
         itchUrl: "https://albidalbi.itch.io/lovrboi",
+        featured: true
+    },
+    {
+        id: 8,
+        title: "JitterLinks - Fit4Cure Serious Game",
+        category: ["godot", "playable"],
+        thumbnail: "Portfolio/Jitterlinks/Jitterlinks mobile demo.gif",
+        images: [
+            "Portfolio/Jitterlinks/JitterLinks Cover.png",
+            "Portfolio/Jitterlinks/Jitterlinks mobile demo.gif",
+            "Portfolio/Jitterlinks/6 nodes gameplay screenshot.png",
+            "Portfolio/Jitterlinks/Build menu gameplay screenshot.png",
+            "Portfolio/Jitterlinks/Mobile screen frutiger aero UI sketch made in Figma.png"
+        ],
+        description: "An exam project for Playable Media during the second semester of an MSc in Games - Design. JitterLinks is a serious game for the Fit4Cure association that turns Parkinson's disease data into an interactive network of nodes and connections, making clinical complexity playable, legible, and less intimidating. The project explores critical play, datafication, and algorithmic literacy while deliberately balancing the ethical risk of reducing patients to statistics by beginning with an individual participant profile before expanding to the wider network.",
+        technologies: ["Playable Media", "Serious Game", "Data Visualization", "Network Graph Gameplay", "UX Design", "Critical Play", "Frutiger Aero UI"],
+        playableUrl: "https://albidalbi.itch.io/jitterlinks",
+        links: [
+            { text: "Kaggle dataset used for the project", url: "https://www.kaggle.com/datasets/vikasukani/parkinsons-disease-data-set" },
+            { text: "PC gameplay video", url: "https://youtu.be/J8woOMGWe2I" },
+            { text: "Mobile gameplay video", url: "https://youtube.com/shorts/UDjYuZ-Putg?feature=share" }
+        ],
+        myRole: "Solo developer; game design, systems design, UX direction, and presentation",
         featured: true
     },
     {
@@ -165,6 +196,7 @@ let currentProject = null;
 document.addEventListener('DOMContentLoaded', () => {
     initializePortfolio();
     setupEventListeners();
+    setupTocMenu();
 });
 
 // Initialize the portfolio display
@@ -215,6 +247,47 @@ function setupEventListeners() {
             } else {
                 closeModal();
             }
+        }
+    });
+}
+
+function setupTocMenu() {
+    const tocContainer = document.querySelector('.toc-menu-container');
+    const tocButton = document.getElementById('toc-button');
+    const tocDropdown = document.getElementById('toc-dropdown');
+
+    if (!tocContainer || !tocButton || !tocDropdown) {
+        return;
+    }
+
+    const closeTocMenu = () => {
+        tocContainer.classList.remove('open');
+        tocButton.setAttribute('aria-expanded', 'false');
+        tocDropdown.hidden = true;
+    };
+
+    tocButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = tocContainer.classList.toggle('open');
+        tocButton.setAttribute('aria-expanded', String(isOpen));
+        tocDropdown.hidden = !isOpen;
+    });
+
+    tocDropdown.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            closeTocMenu();
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!tocContainer.contains(e.target)) {
+            closeTocMenu();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeTocMenu();
         }
     });
 }
@@ -373,6 +446,23 @@ function openModal(project) {
             `;
         });
         modalContent += '</div>';
+    }
+
+    if (project.legacyImages && project.legacyImages.length > 0) {
+        modalContent += '<div class="modal-assets">';
+        modalContent += '<h3>Archived Historical Assets</h3>';
+        modalContent += '<p class="assets-description">Pre-2026 prototype material kept for historical reference.</p>';
+        modalContent += '<div class="modal-images">';
+        project.legacyImages.forEach(image => {
+            modalContent += `
+                <img src="${image}" 
+                     alt="${project.title} archived asset" 
+                     loading="lazy"
+                     class="zoomable-image"
+                     onerror="this.style.display='none'">
+            `;
+        });
+        modalContent += '</div></div>';
     }
 
     // Add technologies
