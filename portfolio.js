@@ -7,7 +7,7 @@ const projects = [
     {
         id: 1,
         title: "Lovrboi - Mobile Touch Movement Study",
-        category: ["unity", "playable"],
+        category: ["highlighted", "unity", "playable"],
         thumbnail: "Portfolio/Unity Loverboy/27052026/Lovrboi 2026 gameplay.gif",
         images: [
             "Portfolio/Unity Loverboy/27052026/Cover Image.png",
@@ -26,12 +26,23 @@ const projects = [
         technologies: ["Unity", "Games User Research", "Telemetry Analysis", "Mixed Methods", "Mobile Touch Controls", "UX Research", "Playtesting"],
         itchWidget: '<iframe frameborder="0" src="https://itch.io/embed/4115708" width="552" height="167"><a href="https://albidalbi.itch.io/lovrboi">Lovrboi by Albidalbi</a></iframe>',
         itchUrl: "https://albidalbi.itch.io/lovrboi",
+        myRole: "Lead Developer; Games User Research lead, systems design, telemetry analysis, UX",
+        timeline: {
+            start: "Aug 2025",
+            end: "TBD",
+            status: "wip",
+            milestones: [
+                { letter: "A", label: "Games user research coursework update May 2026" },
+                { letter: "B", label: "Expecting to launch Alpha during the summer vacation July" },
+                { letter: "C", label: "Expecting to launch Beta in August" }
+            ]
+        },
         featured: true
     },
     {
         id: 8,
         title: "JitterLinks - Fit4Cure Serious Game",
-        category: ["godot", "playable"],
+        category: ["highlighted", "godot", "playable"],
         thumbnail: "Portfolio/Jitterlinks/Jitterlinks mobile demo.gif",
         images: [
             "Portfolio/Jitterlinks/JitterLinks Cover.png",
@@ -49,12 +60,18 @@ const projects = [
             { text: "Mobile gameplay video", url: "https://youtube.com/shorts/UDjYuZ-Putg?feature=share" }
         ],
         myRole: "Solo developer; game design, systems design, UX direction, and presentation",
+        timeline: {
+            start: "Jan 2026",
+            end: "Apr 2026",
+            status: "suspended",
+            milestones: []
+        },
         featured: true
     },
     {
         id: 6,
         title: "Asteroid Escort",
-        category: ["godot", "playable"],
+        category: ["highlighted", "godot", "playable"],
         thumbnail: "Portfolio/Asteroid Escort/Asteroid escort gameplay.gif",
         images: [
             "Portfolio/Asteroid Escort/Asteroid escort gameplay.gif",
@@ -83,6 +100,12 @@ const projects = [
             { name: "Peter Tipsmark Andersen", role: "Programmer, Pixel Artist, AI, GUI, Co-Producer", url: "https://ptandersen.itch.io/" }
         ],
         myRole: "Producer, Art Director, Lead Pixel Artist",
+        timeline: {
+            start: "Sep 2025",
+            end: "Dec 2026",
+            status: "completed",
+            milestones: []
+        },
         featured: true
     },
     {
@@ -100,6 +123,12 @@ const projects = [
         ],
         description: "A metroidvania-style game developed in Godot featuring interconnected vertical level design and designing a horizontal skill progression via a skill tree system. This game features hand-drawn level design sketches translated into playable pixel-art environments. The current pixel art on display does NOT represent the final vision of the project. The story of this game is still being written, and I'm hoping to expand on this project in my free time after handing it in for exam.",
         technologies: ["Godot", "Metroidvania", "Level Design", "Skill Trees", "2D Platformer"],
+        timeline: {
+            start: "Jan 2024",
+            end: "TBD",
+            status: "suspended",
+            milestones: []
+        },
         featured: true
     },
     {
@@ -123,6 +152,12 @@ const projects = [
             { text: "Punch-Out!! (reference)", url: "https://en.wikipedia.org/wiki/Punch-Out!!" }
         ],
         myRole: "Gameplay Programming, Game Design, Pixel Art (Gameplay & Title Screen)",
+        timeline: {
+            start: "Sep 2025",
+            end: "Dec 2026",
+            status: "completed",
+            milestones: []
+        },
         featured: true
     },
     {
@@ -140,6 +175,12 @@ const projects = [
         links: [
             { text: "Project inspired by Tomasz Wacławeks' RONIN", url: "https://store.steampowered.com/app/274230/RONIN/" }
         ],
+        timeline: {
+            start: "2022",
+            end: "TBD",
+            status: "suspended",
+            milestones: []
+        },
         featured: true
     },
     {
@@ -164,6 +205,12 @@ const projects = [
             { name: "Halfdan Eg Minegar Brage", role: "Gameplay Programmer & Art Integration", url: "https://danhalf.itch.io/" }
         ],
         myRole: "Pixel Artist (Ninja Cat Boss Sprites, Animations, Shuriken, HP, Background Tiles)",
+        timeline: {
+            start: "Jan 2024",
+            end: "Jan 2025",
+            status: "completed",
+            milestones: []
+        },
         featured: true
     },
     {
@@ -184,12 +231,18 @@ const projects = [
             { text: "Figma Prototype - Game List Version (Interactive)", url: "https://www.figma.com/proto/qgNNvpAX6iwfVCWGASicdt/Prototype-Bachelorprojekt?node-id=0-1&p=f&viewport=81%2C428%2C0.26&t=rUdwdVHSZVfPNAJH-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1202%3A368&show-proto-sidebar=1" },
             { text: "Figma Prototype - Singular Game Version (Interactive)", url: "https://www.figma.com/proto/qgNNvpAX6iwfVCWGASicdt/Prototype-Bachelorprojekt?node-id=0-1&p=f&viewport=81%2C428%2C0.26&t=rUdwdVHSZVfPNAJH-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1202%3A354&show-proto-sidebar=1" }
         ],
+        timeline: {
+            start: "Dec 2024",
+            end: "May 2025",
+            status: "completed",
+            milestones: []
+        },
         featured: true
     }
 ];
 
 // State Management
-let currentFilter = 'all';
+let currentFilter = 'highlighted';
 let currentProject = null;
 
 // Initialize Portfolio
@@ -197,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializePortfolio();
     setupEventListeners();
     setupTocMenu();
+    filterProjects(currentFilter);
 });
 
 // Initialize the portfolio display
@@ -365,8 +419,108 @@ function createProjectCard(project) {
     title.textContent = project.title;
 
     const description = document.createElement('p');
-    description.className = 'project-description';
-    description.textContent = project.description.substring(0, 120) + '...';
+    description.className = 'project-description project-preview';
+
+    // Generate a 2-3 line preview focused on contribution/role.
+    function generatePreview(proj) {
+        // Prefer explicit preview field if provided
+        if (proj.preview) return proj.preview;
+
+        // Use myRole when available to emphasize contribution
+        const role = proj.myRole ? proj.myRole : '';
+
+        // Fallback keywords from technologies
+        const keywords = (proj.technologies && proj.technologies.length > 0)
+            ? proj.technologies.slice(0, 2).join(', ')
+            : '';
+
+        // Short excerpt from the project description (first sentence), truncated to ~100 chars
+        const rawExcerpt = proj.description ? proj.description.split('.').slice(0,1)[0].trim() : '';
+        const maxExcerpt = 100;
+        let excerpt = rawExcerpt;
+        if (rawExcerpt.length > maxExcerpt) {
+            excerpt = rawExcerpt.substring(0, maxExcerpt - 1).trim();
+            // remove trailing partial word
+            excerpt = excerpt.replace(/\s+[^\s]*$/, '');
+            excerpt = excerpt + '…';
+        }
+
+        // Build preview HTML with emphasized role/keywords and a short excerpt
+        let parts = [];
+        if (role) parts.push(`<strong class="preview-kw">${escapeHtml(role)}</strong>`);
+        else if (keywords) parts.push(`<strong class="preview-kw">${escapeHtml(keywords)}</strong>`);
+
+        if (excerpt) parts.push(escapeHtml(excerpt));
+
+        // Ensure something is shown
+        const previewText = parts.join(' — ');
+        return previewText.length > 0 ? previewText : (escapeHtml(proj.title) + ' — portfolio project');
+    }
+
+    // Simple HTML escaper for safety
+    function escapeHtml(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    description.innerHTML = generatePreview(project);
+
+    const timeline = document.createElement('div');
+    timeline.className = `project-timeline timeline-${project.timeline?.status || 'completed'}`;
+
+    const timelineHeader = document.createElement('div');
+    timelineHeader.className = 'timeline-header';
+
+    const timelineStart = document.createElement('span');
+    timelineStart.className = 'timeline-date timeline-start';
+    timelineStart.textContent = project.timeline?.start || '';
+
+    const timelineEnd = document.createElement('span');
+    timelineEnd.className = 'timeline-date timeline-end';
+    timelineEnd.textContent = project.timeline?.end || '';
+
+    timelineHeader.appendChild(timelineStart);
+    timelineHeader.appendChild(timelineEnd);
+
+    const timelineTrack = document.createElement('div');
+    timelineTrack.className = 'timeline-track';
+
+    const timelineFill = document.createElement('div');
+    timelineFill.className = 'timeline-fill';
+    timelineTrack.appendChild(timelineFill);
+
+    const milestones = document.createElement('div');
+    milestones.className = 'timeline-milestones';
+
+    const milestoneList = project.timeline?.milestones || [];
+    if (milestoneList.length > 0) {
+        milestoneList.forEach((milestone, index) => {
+            const marker = document.createElement('span');
+            marker.className = 'timeline-marker';
+            marker.textContent = milestone.letter;
+            marker.title = `${milestone.letter}: ${milestone.label}`;
+            const edgeInset = '0.85rem';
+            if (milestoneList.length === 1) {
+                marker.style.left = '50%';
+            } else if (index === 0) {
+                marker.style.left = edgeInset;
+            } else if (index === milestoneList.length - 1) {
+                marker.style.left = `calc(100% - ${edgeInset})`;
+            } else {
+                marker.style.left = `${(index / (milestoneList.length - 1)) * 100}%`;
+            }
+            timelineTrack.appendChild(marker);
+
+            const legendItem = document.createElement('div');
+            legendItem.className = 'timeline-legend-item';
+            legendItem.innerHTML = `<span class="timeline-legend-letter">${milestone.letter}</span><span class="timeline-legend-text">${milestone.label}</span>`;
+            milestones.appendChild(legendItem);
+        });
+    }
 
     // Create tags
     const tags = document.createElement('div');
@@ -390,6 +544,14 @@ function createProjectCard(project) {
     // Append elements
     info.appendChild(title);
     info.appendChild(description);
+    if (project.timeline) {
+        timeline.appendChild(timelineHeader);
+        timeline.appendChild(timelineTrack);
+        if (milestoneList.length > 0) {
+            timeline.appendChild(milestones);
+        }
+        info.appendChild(timeline);
+    }
     info.appendChild(tags);
 
     card.appendChild(thumbnail);
